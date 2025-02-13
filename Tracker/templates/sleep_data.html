@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sleep Data</title>
+</head>
+<body style="text-align:center">
+    <h1 style="text-align:center">Sleep Data</h1>
+
+    {% for i in data %}
+        <div class="sleep-entry">
+            <label>SNo:</label>
+            <input type="text" value="{{i[0]}}" readonly>
+            <br>
+
+            <label>Date:</label>
+            <input type="text" value="{{i[2]}}" readonly>
+            <br>
+
+            <label>Sleep starts by:</label>
+            <input type="text" value="{{i[3]}}" readonly>
+            <br>
+
+            <label>Wake up by:</label>
+            <input type="text" value="{{i[4]}}" readonly>
+            <br>
+
+            <label>Duration (hrs):</label>
+            <input type="number" value="{{i[5]}}" readonly>
+            <br>
+
+            <div class="actions">
+                <a href="/edit_entry/{{i[0]}}" class="edit">Edit</a>
+                <a href="/delete_entry/{{i[0]}}" class="delete">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+
+    <a href="/new_entry" class="new-entry-button">ADD ENTRY</a>
+</body>
+</html>
